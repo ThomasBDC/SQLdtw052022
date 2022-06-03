@@ -47,6 +47,14 @@ WHERE
 ORDER BY surname, forename, mail ASC
 
 -- Modifier un utilisateur
+UPDATE
+    users
+SET
+    surname = 'surnameUPDATE',
+    forename = 'forenameUPDATE',
+    mail = 'mailUPDATE'
+WHERE 
+    iduser = 5
 
 
 -- Supprimer un utilisateur (il faut d'abord supprimer les liens liés à l'utilisateur)

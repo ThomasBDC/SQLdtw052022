@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Local_dev_tech_watch",
+            "username": "root",
+            "password": "5^6n=Z^HEQArnKvF",
+            "database": "dev_tech_watch"
+        }
+    ]
+}
