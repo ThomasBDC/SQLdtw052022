@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="3">
     <diagram id="2QM_x01xMpiBVRzLlh7O" name="Notes de réunion">
-        <mxGraphModel dx="1026" dy="479" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="831" dy="275" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="eyhm42ZrMHMS2FB7j-Ck-0"/>
                 <mxCell id="eyhm42ZrMHMS2FB7j-Ck-1" parent="eyhm42ZrMHMS2FB7j-Ck-0"/>
@@ -14,7 +14,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="R2lEEEUBdFMjLlhIrx00" name="MLD/MCD">
-        <mxGraphModel dx="1026" dy="479" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+        <mxGraphModel dx="1469" dy="1664" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -261,10 +261,10 @@
                     <mxGeometry x="30" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="N560TEkfA6cxXD-4JirZ-34" value="DTW Database Schéma" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="270" y="10" width="355" height="90" as="geometry"/>
+                    <mxGeometry x="-160" y="10" width="355" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="N560TEkfA6cxXD-4JirZ-35" value="likes" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" parent="1" vertex="1">
-                    <mxGeometry x="530" y="490" width="180" height="90" as="geometry">
+                    <mxGeometry x="460" y="490" width="180" height="90" as="geometry">
                         <mxRectangle x="90" y="140" width="60" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
@@ -272,19 +272,46 @@
                     <mxGeometry y="30" width="180" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="N560TEkfA6cxXD-4JirZ-37" value="PK &#10;FK" style="shape=partialRectangle;overflow=hidden;connectable=0;top=0;left=0;bottom=0;right=0;fontStyle=1;" parent="N560TEkfA6cxXD-4JirZ-36" vertex="1">
-                    <mxGeometry width="30" height="30" as="geometry"/>
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="N560TEkfA6cxXD-4JirZ-38" value="user_id int NOT NULL " style="shape=partialRectangle;overflow=hidden;connectable=0;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;" parent="N560TEkfA6cxXD-4JirZ-36" vertex="1">
-                    <mxGeometry x="30" width="150" height="30" as="geometry"/>
+                    <mxGeometry x="30" width="150" height="30" as="geometry">
+                        <mxRectangle width="150" height="30" as="alternateBounds"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="N560TEkfA6cxXD-4JirZ-39" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" parent="N560TEkfA6cxXD-4JirZ-35" vertex="1">
                     <mxGeometry y="60" width="180" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="N560TEkfA6cxXD-4JirZ-40" value="PK&#10;FK" style="shape=partialRectangle;overflow=hidden;connectable=0;top=0;left=0;bottom=0;right=0;fontStyle=1;" parent="N560TEkfA6cxXD-4JirZ-39" vertex="1">
-                    <mxGeometry width="30" height="30" as="geometry"/>
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="N560TEkfA6cxXD-4JirZ-41" value="link_id int NOT NULL" style="shape=partialRectangle;overflow=hidden;connectable=0;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;" parent="N560TEkfA6cxXD-4JirZ-39" vertex="1">
-                    <mxGeometry x="30" width="150" height="30" as="geometry"/>
+                    <mxGeometry x="30" width="150" height="30" as="geometry">
+                        <mxRectangle width="150" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="L0646i-YS1zgxfmoSjft-2" style="edgeStyle=none;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=22;exitX=0.047;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="L0646i-YS1zgxfmoSjft-1" target="C-vyLk0tnHw3VtMMgP7b-2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="L0646i-YS1zgxfmoSjft-3" value="INNER JOIN" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" vertex="1" connectable="0" parent="L0646i-YS1zgxfmoSjft-2">
+                    <mxGeometry x="0.2855" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="L0646i-YS1zgxfmoSjft-4" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=22;exitX=0.473;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="L0646i-YS1zgxfmoSjft-1" target="C-vyLk0tnHw3VtMMgP7b-23">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="L0646i-YS1zgxfmoSjft-5" value="INNER JOIN" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" vertex="1" connectable="0" parent="L0646i-YS1zgxfmoSjft-4">
+                    <mxGeometry x="0.7244" y="-1" relative="1" as="geometry">
+                        <mxPoint x="57" y="-53" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="L0646i-YS1zgxfmoSjft-1" value="user&amp;nbsp; &amp;nbsp; &amp;nbsp;lienfavori&lt;br&gt;&lt;table style=&quot;font-size: 22px&quot;&gt;&lt;tbody style=&quot;font-size: 22px&quot;&gt;&lt;tr style=&quot;font-size: 22px&quot;&gt;&lt;td style=&quot;font-size: 22px&quot;&gt;96&amp;nbsp; &amp;nbsp;&lt;/td&gt;&lt;td style=&quot;font-size: 22px&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;50&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;font-size: 22px&quot;&gt;&lt;td style=&quot;font-size: 22px&quot;&gt;68&lt;/td&gt;&lt;td style=&quot;font-size: 22px&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;56&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;font-size: 22px&quot;&gt;&lt;td style=&quot;font-size: 22px&quot;&gt;68&lt;/td&gt;&lt;td style=&quot;font-size: 22px&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;100&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;html=1;fontSize=22;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="332.5" y="-150" width="230" height="120" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

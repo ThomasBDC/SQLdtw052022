@@ -64,6 +64,44 @@ ORDER BY
  
 
 
+/*
+Je veux récupérer tous les liens liké pour un utilisaeur
+
+*/
+
+
+SELECT 
+    likes.idUsers,
+    users.surname,
+    users.forename,
+    users.mail,
+    likes.idLinks,
+    links.title,
+    links.description, 
+    links.link
+FROM likes 
+INNER JOIN users ON likes.idUsers = users.idUser
+INNER JOIN links ON likes.idLinks = links.idLinks
+    
+    
+ 
+
+ /*
+ Je veux récupérer les liens des catégories
+  */ 
+
+select 
+    tag_links.idlink,
+    links.title,
+    links.description, 
+    links.link,
+    tag_links.idtag,
+    tags.name,
+    tags.color
+from tag_links
+INNER JOIN links ON tag_links.idlink = links.idLinks
+INNER JOIN tags ON tag_links.idtag = tags.idtags
+
 
 /*Ci-dessous tu peux écrire
 __________________________
