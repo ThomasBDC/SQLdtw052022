@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Host: localhost    Database: dtw_live
+-- Host: localhost    Database: dtw_import
 -- ------------------------------------------------------
 -- Server version	8.0.28
 
@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `likes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `likes` (
-  `iduser` int NOT NULL,
-  `idlink` int NOT NULL,
-  KEY `fk4_idx` (`iduser`),
-  KEY `fk5_idx` (`idlink`),
-  CONSTRAINT `fk4` FOREIGN KEY (`iduser`) REFERENCES `users` (`idusers`),
-  CONSTRAINT `fk5` FOREIGN KEY (`idlink`) REFERENCES `links` (`idlinks`)
+  `user_id` int NOT NULL,
+  `link_id` int NOT NULL,
+  PRIMARY KEY (`user_id`,`link_id`),
+  KEY `link_id` (`link_id`),
+  CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`link_id`) REFERENCES `links` (`link_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,6 +38,7 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
+INSERT INTO `likes` VALUES (1,1),(5,1),(1,2),(1,3),(1,4),(5,4),(1,5),(5,5);
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,16 +50,16 @@ DROP TABLE IF EXISTS `links`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `links` (
-  `idlinks` int NOT NULL AUTO_INCREMENT,
+  `link_id` int NOT NULL AUTO_INCREMENT,
   `url` varchar(500) NOT NULL,
   `title` varchar(100) NOT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `creation_date` datetime NOT NULL,
-  `userId` int DEFAULT NULL,
-  PRIMARY KEY (`idlinks`),
-  KEY `fk1_idx` (`userId`),
-  CONSTRAINT `fk1` FOREIGN KEY (`userId`) REFERENCES `users` (`idusers`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`link_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `links_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +68,7 @@ CREATE TABLE `links` (
 
 LOCK TABLES `links` WRITE;
 /*!40000 ALTER TABLE `links` DISABLE KEYS */;
+INSERT INTO `links` VALUES (1,'https://google.com','Google','Le moteur de recherche le plus connu','2022-06-08 00:00:00',1),(2,'https://sql.sh/','SQL','Liste de cours SQL','2022-06-08 00:00:00',1),(3,'https://www.pierre-giraud.com/html-css-apprendre-coder-cours/','Cours HTML','Cours HTML de Pierre GIRAUD','2022-06-08 00:00:00',2),(4,'https://www.pierre-giraud.com/html-css-apprendre-coder-cours/','Cours CSS','Cours CSS de Pierre GIRAUD','2022-06-08 00:00:00',2),(5,'https://www.pierre-giraud.com/javascript-apprendre-coder-cours/','Cours JS','Cours JS de Pierre GIRAUD','2022-06-08 00:00:00',2),(6,'https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/','Cours PGP','Cours PHP de Pierre GIRAUD','2022-06-08 00:00:00',3),(7,'https://www.pierre-giraud.com/bootstrap-apprendre-cours/','Cours Boostrap','Cours BS de Pierre GIRAUD','2022-06-08 00:00:00',4),(8,'https://www.pierre-giraud.com/jquery-apprendre-cours/','Cours JQUERY','Cours JQUERY de Pierre GIRAUD','2022-06-08 00:00:00',5),(9,'https://www.pierre-giraud.com/','Cours Pierre GIRUD','Toutes les ressources de Pierre GIRAUD','2022-06-08 00:00:00',5);
 /*!40000 ALTER TABLE `links` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,12 +80,12 @@ DROP TABLE IF EXISTS `links_tags`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `links_tags` (
-  `idlink` int NOT NULL,
-  `idtag` int NOT NULL,
-  KEY `fk2_idx` (`idtag`),
-  KEY `fk3_idx` (`idlink`),
-  CONSTRAINT `fk2` FOREIGN KEY (`idtag`) REFERENCES `tags` (`idtags`),
-  CONSTRAINT `fk3` FOREIGN KEY (`idlink`) REFERENCES `links` (`idlinks`)
+  `link_id` int NOT NULL,
+  `tag_id` int NOT NULL,
+  PRIMARY KEY (`link_id`,`tag_id`),
+  KEY `tag_id` (`tag_id`),
+  CONSTRAINT `links_tags_ibfk_1` FOREIGN KEY (`link_id`) REFERENCES `links` (`link_id`),
+  CONSTRAINT `links_tags_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`tag_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -93,6 +95,7 @@ CREATE TABLE `links_tags` (
 
 LOCK TABLES `links_tags` WRITE;
 /*!40000 ALTER TABLE `links_tags` DISABLE KEYS */;
+INSERT INTO `links_tags` VALUES (2,1),(9,1),(9,2),(3,3),(9,3),(4,4),(5,4),(7,4),(9,4),(8,5),(9,5),(6,6),(9,6);
 /*!40000 ALTER TABLE `links_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,11 +107,11 @@ DROP TABLE IF EXISTS `tags`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tags` (
-  `idtags` int NOT NULL AUTO_INCREMENT,
+  `tag_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `color` varchar(6) NOT NULL,
-  PRIMARY KEY (`idtags`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`tag_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,6 +120,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
+INSERT INTO `tags` VALUES (1,'SQL','eb4034'),(2,'C#','431f6b'),(3,'HTML','9aa321'),(4,'CSS','a36621'),(5,'JS','854564'),(6,'PHP','2a229c');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,16 +132,15 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `idusers` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `forename` varchar(100) NOT NULL,
   `surname` varchar(100) NOT NULL,
   `mail` varchar(200) NOT NULL,
   `password` varchar(500) NOT NULL,
   `avatar` blob,
-  `avatar_mime_type` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`idusers`),
-  UNIQUE KEY `mail_UNIQUE` (`mail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `avatar_mimeType` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,6 +149,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Abdallah','BAILOUL','abba@gmail.com','JDORSQL',NULL,NULL),(2,'Aleksandra','CICHOCKA','test@gmail.com','pwd',NULL,NULL),(3,'Andriy','NANTOY','test@gmail.com','pwd',NULL,NULL),(4,'ANTHOnY','COMMUN','test@gmail.com','pwd',NULL,NULL),(5,'Bruno','DAHLEM','test@gmail.com','pwd',NULL,NULL),(6,'Christophe','THEVENET','test@gmail.com','pwd',NULL,NULL),(7,'Dominique','BUTIN','test@gmail.com','pwd',NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -158,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-25 15:21:16
+-- Dump completed on 2022-06-08 14:53:22

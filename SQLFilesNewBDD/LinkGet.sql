@@ -1,10 +1,10 @@
 /* Récupérer tous mes liens, triés par titre*/
 SELECT
-    l.idlinks,
-    l.Link,
+    l.link_id,
+    l.url,
     l.title,
     l.Description,
-    u.iduser,
+    u.user_id,
     u.forename,
     u.surname, 
     u.mail
@@ -12,7 +12,7 @@ FROM
     links AS l
 INNER JOIN 
     users AS u ON
-        u.iduser = l.idAuteur
+        u.user_id = l.user_id
 ORDER BY
     l.title DESC
 
@@ -28,8 +28,8 @@ FROM
     links AS l
 INNER JOIN 
     users AS u ON
-        u.iduser = l.idAuteur 
-GROUP BY u.iduser 
+        u.user_id = l.user_id 
+GROUP BY u.user_id 
 HAVING COUNT(l.link) > 3 AND u.forename LIKE '%G%'
 
 /*
@@ -40,11 +40,11 @@ je veux que ma requête cherche sur links.title links.description, user.forename
 */
 
 SELECT
-    l.idlinks,
-    l.Link,
+    l.link_id,
+    l.url,
     l.title,
     l.Description,
-    u.iduser,
+    u.user_id,
     u.forename,
     u.surname, 
     u.mail
@@ -53,7 +53,7 @@ FROM
 
 INNER JOIN 
     users AS u ON
-        u.iduser = l.idAuteur
+        u.user_id = l.user_id
 Where 
     l.title LIKE '%ga%' OR
     l.description LIKE '%ga%' OR
@@ -71,17 +71,17 @@ Je veux récupérer tous les liens liké pour un utilisaeur
 
 
 SELECT 
-    likes.idUsers,
+    likes.user_ids,
     users.surname,
     users.forename,
     users.mail,
-    likes.idLinks,
+    likes.link_id,
     links.title,
     links.description, 
-    links.link
+    links.url
 FROM likes 
-INNER JOIN users ON likes.idUsers = users.idUser
-INNER JOIN links ON likes.idLinks = links.idLinks
+INNER JOIN users ON likes.user_ids = users.user_id
+INNER JOIN links ON likes.link_id = links.link_id
     
     
  
@@ -94,12 +94,12 @@ select
     tag_links.idlink,
     links.title,
     links.description, 
-    links.link,
+    links.url,
     tag_links.idtag,
     tags.name,
     tags.color
 from tag_links
-INNER JOIN links ON tag_links.idlink = links.idLinks
+INNER JOIN links ON tag_links.idlink = links.link_id
 INNER JOIN tags ON tag_links.idtag = tags.idtags
 
 
